@@ -27,6 +27,17 @@ class ObjectCategory(str, Enum):
     ADAPTER = "adapter"
     COVER = "cover"
     CUSTOM = "custom"
+    BOX = "box"
+    CYLINDER = "cylinder"
+    PHONE_STAND = "phone_stand"
+    KEYCHAIN = "keychain"
+    CUP_HOLDER = "cup_holder"
+    ENCLOSURE = "enclosure"
+    SPACER = "spacer"
+    HOOK = "hook"
+    STAND = "stand"
+    MOUNT = "mount"
+    CABLE_CLIP = "cable_clip"
 
 
 class FitType(str, Enum):

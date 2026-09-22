@@ -1,0 +1,204 @@
+[
+  {
+    "test_number": 1,
+    "input": "I need a small box to store screws, about 80mm wide",
+    "detected_category": "box",
+    "detected_dimensions": [
+      {
+        "value": 80.0,
+        "unit": "mm",
+        "context": "wide",
+        "mm": 80.0
+      }
+    ],
+    "extracted_numbers": [
+      80.0
+    ],
+    "generated_name": "box_80mm",
+    "generated_description": "A box (80mm)",
+    "generation_success": true,
+    "model_type": "box",
+    "parameters": {
+      "width": 80.0,
+      "height": 48.0,
+      "depth": 64.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 2,
+    "input": "Can you make a cup holder that clips onto a car vent",
+    "detected_category": "custom",
+    "detected_dimensions": [],
+    "extracted_numbers": [],
+    "generated_name": "custom",
+    "generated_description": "A custom",
+    "generation_success": true,
+    "model_type": "box",
+    "parameters": {
+      "width": 50,
+      "height": 30.0,
+      "depth": 40.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 3,
+    "input": "I want a phone stand that holds my phone at an angle",
+    "detected_category": "bracket",
+    "detected_dimensions": [],
+    "extracted_numbers": [],
+    "generated_name": "bracket",
+    "generated_description": "A bracket",
+    "generation_success": true,
+    "model_type": "bracket",
+    "parameters": {
+      "width": 60,
+      "height": 48.0,
+      "thickness": 2.0,
+      "hole_diameter": 5.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 4,
+    "input": "Make me a keychain with a hole for a ring",
+    "detected_category": "custom",
+    "detected_dimensions": [],
+    "extracted_numbers": [],
+    "generated_name": "ring_custom",
+    "generated_description": "A custom for ring",
+    "generation_success": true,
+    "model_type": "box",
+    "parameters": {
+      "width": 50,
+      "height": 30.0,
+      "depth": 40.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 5,
+    "input": "I need a cable clip to hold a USB cable to my desk",
+    "detected_category": "hook",
+    "detected_dimensions": [],
+    "extracted_numbers": [],
+    "generated_name": "hook",
+    "generated_description": "A hook",
+    "generation_success": true,
+    "model_type": "hook",
+    "parameters": {
+      "arm_length": 40,
+      "thickness": 2.0,
+      "mount_hole_diameter": 5.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 6,
+    "input": "Design a simple gear with 20 teeth",
+    "detected_category": "custom",
+    "detected_dimensions": [],
+    "extracted_numbers": [
+      20.0
+    ],
+    "generated_name": "custom",
+    "generated_description": "A custom",
+    "generation_success": true,
+    "model_type": "box",
+    "parameters": {
+      "width": 50,
+      "height": 30.0,
+      "depth": 40.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 7,
+    "input": "I want a vase, about 100mm tall",
+    "detected_category": "custom",
+    "detected_dimensions": [
+      {
+        "value": 100.0,
+        "unit": "mm",
+        "context": "tall",
+        "mm": 100.0
+      }
+    ],
+    "extracted_numbers": [
+      100.0
+    ],
+    "generated_name": "custom_100mm",
+    "generated_description": "A custom (100mm)",
+    "generation_success": true,
+    "model_type": "box",
+    "parameters": {
+      "width": 100.0,
+      "height": 60.0,
+      "depth": 80.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 8,
+    "input": "Make a name tag holder with a pin clip",
+    "detected_category": "hook",
+    "detected_dimensions": [],
+    "extracted_numbers": [],
+    "generated_name": "hook",
+    "generated_description": "A hook",
+    "generation_success": true,
+    "model_type": "hook",
+    "parameters": {
+      "arm_length": 40,
+      "thickness": 2.0,
+      "mount_hole_diameter": 5.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 9,
+    "input": "I need a wall mount for my router",
+    "detected_category": "bracket",
+    "detected_dimensions": [],
+    "extracted_numbers": [],
+    "generated_name": "router_bracket",
+    "generated_description": "A bracket for router",
+    "generation_success": true,
+    "model_type": "bracket",
+    "parameters": {
+      "width": 60,
+      "height": 48.0,
+      "thickness": 2.0,
+      "hole_diameter": 5.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  },
+  {
+    "test_number": 10,
+    "input": "Create a puzzle piece shape",
+    "detected_category": "custom",
+    "detected_dimensions": [],
+    "extracted_numbers": [],
+    "generated_name": "custom",
+    "generated_description": "A custom",
+    "generation_success": true,
+    "model_type": "box",
+    "parameters": {
+      "width": 50,
+      "height": 30.0,
+      "depth": 40.0
+    },
+    "model_path": "C:\\Users\\K1CENT~1\\AppData\\Local\\Temp\\vibe-print\\generated\\from_description.stl",
+    "error": null
+  }
+]

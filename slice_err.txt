@@ -1,0 +1,1 @@
+C:\Users\K1 Center\AppData\Local\Programs\Python\Python314\python.exe: can't open file 'c:\\Users\\K1': [Errno 2] No such file or directory

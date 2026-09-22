@@ -352,3 +352,96 @@ async def quick_slice(
     params = BUILTIN_PRESETS[preset_name].parameters
 
     return await cli.slice_model(model_path, parameters=params)
+
+
+# ---------------------------------------------------------------------------
+# Factory function — used by vibe_print.agent.orchestrator
+# ---------------------------------------------------------------------------
+
+
+def get_slicer_cli() -> "SlicerCLI":
+    """Return a SlicerCLI instance configured from config."""
+    return SlicerCLI()
+
+
+# ---------------------------------------------------------------------------
+# Mock slicer — used by tests and when no real slicer is installed
+# ---------------------------------------------------------------------------
+
+
+class MockSlicerCLI:
+    """
+    Fake slicer that simulates slicing results without a real slicer binary.
+
+    Used when:
+    - No slicer is installed (config.slicer.executable_path does not exist)
+    - Running tests that need deterministic slice output
+    """
+
+    def __init__(
+        self,
+        output_dir: Optional[Path] = None,
+        simulated_time_seconds: float = 120.0,
+        simulated_filament_grams: float = 5.0,
+        simulated_layer_count: int = 150,
+    ):
+        if output_dir is None:
+            output_dir = Path(tempfile.gettempdir()) / "vibe-print-mock"
+        self.output_dir = Path(output_dir)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.simulated_time_seconds = simulated_time_seconds
+        self.simulated_filament_grams = simulated_filament_grams
+        self.simulated_layer_count = simulated_layer_count
+
+    def is_available(self) -> Tuple[bool, str]:
+        return (True, "Mock slicer (no real slicer found)")
+
+    async def slice_model(
+        self,
+        model_path: Path | str,
+        parameters: Optional[SlicingParameters] = None,
+        output_name: Optional[str] = None,
+        export_gcode: bool = True,
+        export_3mf: bool = True,
+        auto_orient: bool = True,
+        auto_arrange: bool = True,
+    ) -> SliceResult:
+        """Simulate a slicing operation and return a realistic result."""
+        model_path = Path(model_path)
+        if not model_path.exists():
+            return SliceResult(
+                success=False,
+                input_model=model_path,
+                error_message=f"Model file not found: {model_path}",
+            )
+
+        if output_name is None:
+            output_name = model_path.stem
+
+        output_gcode: Optional[Path] = None
+        output_3mf: Optional[Path] = None
+
+        if export_gcode:
+            output_gcode = self.output_dir / f"{output_name}.gcode"
+            # Write a minimal G-code file so tools that check file existence pass
+            output_gcode.write_text(
+                f"; Mock G-code for {model_path.name}\n"
+                f"; Simulated time: {self.simulated_time_seconds}s\n"
+                f"; Simulated filament: {self.simulated_filament_grams}g\n"
+            )
+
+        if export_3mf:
+            output_3mf = self.output_dir / f"{output_name}.3mf"
+            output_3mf.write_bytes(b"PK\x03\x04mock-3mf")  # Minimal ZIP-like header
+
+        return SliceResult(
+            success=True,
+            input_model=model_path,
+            output_3mf=output_3mf,
+            output_gcode=output_gcode,
+            estimated_time_seconds=self.simulated_time_seconds,
+            estimated_filament_grams=self.simulated_filament_grams,
+            layer_count=self.simulated_layer_count,
+            error_message=None,
+            cli_output="Mock slicer: no real slicer used",
+        )

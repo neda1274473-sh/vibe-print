@@ -1004,12 +1004,27 @@ async def vibe_generate_parametric(params: GenerateModelInput) -> str:
         -> Generates STL with appropriate slot width, thick walls, grip textures
     """
     from vibe_print.generator.requirements import RequirementsParser
-    from vibe_print.generator.cad_generator import ParametricGenerator
+    from vibe_print.generator.parametric import ParametricGenerator
 
     try:
+        # Parse requirements
+        parser = RequirementsParser()
+        requirements = parser.parse(params.description)
+
+        # Override dimension if specified
+        if params.target_dimension_mm:
+            from vibe_print.generator.requirements import Dimension
+            requirements.target_dimensions.insert(0, Dimension(
+                value=params.target_dimension_mm,
+                unit="mm",
+                context="user specified",
+            ))
+
+        # Generate model
         generator = ParametricGenerator()
-        result = generator.generate_from_description(params.description)
-        return json.dumps(result, indent=2, default=str)
+        result = generator.generate_from_requirements(requirements)
+
+        return result.to_json()
 
     except Exception as e:
         return json.dumps({"error": str(e)})
